@@ -71,7 +71,7 @@ function createCell(index){
 function bombGenerator(){
   // creo un array per inserire le bombe
   while(bombs.length < 16){
-    const bombsRandom = Math.floor(Math.random() * 100) + 1;
+    const bombsRandom = Math.ceil(Math.random() * levels[selectLevel.value]);
    
 
     if(!bombs.includes(bombsRandom)){
