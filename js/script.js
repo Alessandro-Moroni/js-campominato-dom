@@ -46,19 +46,17 @@ function createCell(index){
   cell.className = 'square';
   cell.classList.add('cell' + cellNumbers);
   cell._cellId = index;
-  cell.addEventListener('click', clickCell)
+  console.log(index);
+  cell.addEventListener('click',function(){
+    if(bombs.includes(this._cellId)){
+      this.classList.add('bomb');
+    }
+
+    this.classList.add('clicked');
+  });
+
   return cell;
  
-}
-
-function clickCell(){
-  if(this){
-    this.classList.add('clicked')
-  }else{
-    bombs.classList.add('bomb')
-  }
-  
-
 }
 
 
@@ -66,12 +64,11 @@ function clickCell(){
 // GENERATORE BOMBE
 function bombGenerator(){
   // creo un array per inserire le bombe
-  let bombs = [];
   while(bombs.length < 16){
-    const bombsRandom = Math.floor(Math.random() * cellNumbers) + 1;
+    const bombsRandom = Math.floor(Math.random() * 100) + 1;
    
 
-    if(!bombs.include(bombsRandom)){
+    if(!bombs.includes(bombsRandom)){
       bombs.push(bombsRandom)
     }
   }
