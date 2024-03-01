@@ -2,7 +2,7 @@
 const main = document.querySelector('.back');
 const playBtn = document.getElementById('play');
 const selectLevel = document.getElementById('level');
-
+const containerFather = document.querySelector('.container')
 // DATA
 const levels = [100, 81, 49];
 
@@ -51,8 +51,9 @@ function createCell(index){
   cell.addEventListener('click',function(){
     if(bombs.includes(this._cellId)){
       this.classList.add('bomb');
-      alert(`Hai perso! Hai fatto: ${counter}`)
-     
+      alert(`Hai perso! Hai fatto: ${counter}`);
+      showBombs();
+      
     }
     
     this.classList.add('clicked');
@@ -78,6 +79,20 @@ function bombGenerator(){
     }
   }
   
+}
+
+// funzione per vedere le bombe
+function showBombs(){
+  for(let i = 0; i < bombs.length; i++){
+    const bombShow = bombShow[i];
+    const allBomb = containerFather.children[bombs - 1];
+    if(allBomb && !allBomb.classList.contains('clicked')){
+      // allBomb.style.backgroundColor = 'red';
+      allBomb.classList.add('bomb');
+
+      
+    }
+  }
 }
 
 function reset(){
