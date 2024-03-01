@@ -35,7 +35,12 @@ function createCell(index){
   cell.className = 'square';
   cell.classList.add('cell' + cellNumbers);
   cell._cellId = index;
+  cell.addEventListener('click', clickCell)
   return cell;
+}
+
+function clickCell(){
+  this.classList.add('clicked');
 }
 
 function reset(){
