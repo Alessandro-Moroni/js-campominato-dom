@@ -10,6 +10,7 @@ let bombs = [];
 
 let cellNumbers;
 
+let counter = 0;
 
 // START GAME
 playBtn.addEventListener('click', play);
@@ -46,13 +47,17 @@ function createCell(index){
   cell.className = 'square';
   cell.classList.add('cell' + cellNumbers);
   cell._cellId = index;
-  console.log(index);
+  
   cell.addEventListener('click',function(){
     if(bombs.includes(this._cellId)){
       this.classList.add('bomb');
+      alert(`Hai perso! Hai fatto: ${counter}`)
+     
     }
-
+    
     this.classList.add('clicked');
+    counter++;
+    console.log(counter);
   });
 
   return cell;
