@@ -1,0 +1,68 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.back{
+  background-color: cadetblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.head-container{
+  height: 50px;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#level{
+  width: 200px;
+}
+.btn-play{
+  height: 20px;
+  width: 50px;
+ background-color: rgb(227, 171, 67);
+}
+.container{
+  background-color: crimson;
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  
+}
+
+.square{
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+}
+.clicked{
+  background-color: rgb(215, 152, 33);
+
+}
+
+
+.cell100{
+  height: calc(100% / 10);
+  width: calc(100% / 10);
+}
+.cell81{
+  height: calc(100% / 9);
+  width: calc(100% / 9);
+}
+.cell49{
+  height: calc(100% / 7);
+  width: calc(100% / 7);
+}
