@@ -66,3 +66,7 @@
   height: calc(100% / 7);
   width: calc(100% / 7);
 }
+
+.bomb{
+  background-color: crimson;
+}

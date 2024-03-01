@@ -1,20 +1,31 @@
+//  ELEMENTS
 const main = document.querySelector('.back');
 const playBtn = document.getElementById('play');
 const selectLevel = document.getElementById('level');
 
+// DATA
 const levels = [100, 81, 49];
+
+let bombs = [];
 
 let cellNumbers;
 
+
+// START GAME
 playBtn.addEventListener('click', play);
+
 
 function play(){
 
   reset();
+  // livello selezionato
   cellNumbers = levels[selectLevel.value];
 
+  // generatore griglia
   generateCellBg();
 
+  // generatore bombe
+  bombGenerator();
 }
 
 
@@ -37,10 +48,34 @@ function createCell(index){
   cell._cellId = index;
   cell.addEventListener('click', clickCell)
   return cell;
+ 
 }
 
 function clickCell(){
-  this.classList.add('clicked');
+  if(this){
+    this.classList.add('clicked')
+  }else{
+    bombs.classList.add('bomb')
+  }
+  
+
+}
+
+
+
+// GENERATORE BOMBE
+function bombGenerator(){
+  // creo un array per inserire le bombe
+  let bombs = [];
+  while(bombs.length < 16){
+    const bombsRandom = Math.floor(Math.random() * cellNumbers) + 1;
+   
+
+    if(!bombs.include(bombsRandom)){
+      bombs.push(bombsRandom)
+    }
+  }
+  
 }
 
 function reset(){
