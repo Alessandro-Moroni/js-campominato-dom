@@ -3,6 +3,8 @@ const main = document.querySelector('.back');
 const playBtn = document.getElementById('play');
 const selectLevel = document.getElementById('level');
 const containerFather = document.querySelector('.container')
+
+
 // DATA
 const levels = [100, 81, 49];
 
@@ -52,8 +54,15 @@ function createCell(index){
     if(bombs.includes(this._cellId)){
       this.classList.add('bomb');
       alert(`Hai perso! Hai fatto: ${counter}`);
+      
+      const endGame = document.createElement('div');
+      endGame.classList.add('end-game');
+      main.append(endGame);
       showBombs();
       
+    }
+    if(counter === cell - bombs){
+      alert(`Hai vinto!`)
     }
     
     this.classList.add('clicked');
@@ -83,12 +92,13 @@ function bombGenerator(){
 
 // funzione per vedere le bombe
 function showBombs(){
-  for(let i = 0; i < bombs.length; i++){
-    const bombShow = bombShow[i];
-    const allBomb = containerFather.children[bombs - 1];
-    if(allBomb && !allBomb.classList.contains('clicked')){
-      // allBomb.style.backgroundColor = 'red';
-      allBomb.classList.add('bomb');
+  let allCell = document.querySelectorAll('.square');
+ 
+  for(let i = 0; i < allCell.length; i++){
+    
+    if(bombs.includes(allCell[i]._cellId)){
+  
+      allCell[i].classList.add('bomb');
 
       
     }
